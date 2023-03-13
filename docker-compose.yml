@@ -1,0 +1,38 @@
+version: '3.1'
+
+services:
+  node_1:
+    container_name: node01
+    build: ./
+    environment:
+      - NODE_ID="node01"
+      - RAFT_PORT=2801
+      - HTTP_PORT=3801
+    volumes:
+      - './node01_data:/data'
+    ports:
+      - 3801:3801
+
+  node_2:
+    container_name: node02
+    build: ./
+    environment:
+      - NODE_ID="node02"
+      - RAFT_PORT=2802
+      - HTTP_PORT=3802
+    volumes:
+      - './node02_data:/data'
+    ports:
+      - 3802:3802
+
+  node_3:
+    container_name: node03
+    build: ./
+    environment:
+      - NODE_ID="node03"
+      - RAFT_PORT=2803
+      - HTTP_PORT=3803
+    volumes:
+      - './node03_data:/data'
+    ports:
+      - 3803:3803
